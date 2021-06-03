@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 怎样在页面上实现一个圆形的可点击区域
+		 重点其实就是在于圆形以及可点击呗，圆形使用border-radius：50%来实现
+		 如果使用button或者input就直接可以进行点击，如果是其他的元素就加入cursor:pointer以及onclick和a标签嵌套就行了
+		 
+		 -->
+		
+		<!-- FOUC 
+			FOUC指的是 flash of unstyled content
+			可能是因为使用了@import进行加载   这里要换成link的方式进行script代码的加载
+			意思是页面在加载出现之后突然闪动一下，然后加载出另外的样子
+			其实是因为浏览器在加载页面的时候受到加载速度的限制而导致的页面重新绘制
+			如何避免：将第一张页面的元素前移动，尤其是必要的script代码放置到head中进行引用，将其他的script代码统统放在html的最下方进行解析
+			
+		 
+		 -->
+		 
+		 <!-- use strict
+		  严格模式 该模式下代码的要求更加严谨  比如禁止使用this调用全局变量 
+		  以及对于全局变量要进行显式声明
+		  全局中的this不再是 window而是undifined
+		  -->
+	</body>
+</html>

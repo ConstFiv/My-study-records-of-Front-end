@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	<!-- title与h1的区别   b 与strong的区别  i与em的区别 -->
+<!-- 	title是浏览器窗口的标题
+	h1是一号标题字体,一个网页最好只有一个,便于SEO
+	strong/em 分别表示加粗字体/倾斜字体 也都是h5的新标签 -->
+
+<!-- style写在body前和body后的区别是什么
+	如果写在标题前就是说明在页面加载之前就执行script语句
+	如果之后就是先加载网页然后再执行script语句
+ 
+ -->
+ 
+ 
+ <!-- 写一个数组去重的程序//包含多维数组 -->
+	<script type="text/javascript">
+		// var arr = [1,2,2,3,3,4,5,56,6,7,78,89,9,0,0,21,2,2,3,2,32,3,21,544,4,5,67,7];
+		// // // 一维数组的去重操作
+		// var newArr = [];
+		// for(i in arr){
+		// 	// 说明不在新数列当中
+		// 	if(newArr.indexOf(arr[i])<0){
+		// 		newArr[newArr.length] = arr[i];
+		// 		}
+			
+		// 	}
+		// 	console.log(newArr);
+		
+		var arr = [[1,2,3,4,5],[2,3,4,5,6],[5,5,5,5,5],[2,3,4,5,6]];
+		// 想法：首先进行数组降维 然后去重 最高到三维
+		i=0;
+		var newArr = [];
+		while(i<arr.length){
+			if(typeof arr[i] == n=Number){
+				newArr.push(arr[i]);
+			}else{
+				while(j<arr[i].length){
+					if(typeof arr[i][j] == Number){
+						newArr.push(arr[i][j]);
+					}else{
+						while(k<arr[i][j].length)
+							newArr.push(arr[i][j][k]);
+					}
+				}
+			}	
+		}
+		var finalArr = [];
+		for(var i=0 ; i<newArr.length ;i++){
+			if(finalArr.indexOf(newArr[i])<0){
+				finalArr.push(newArr[i]);
+			}
+		}
+		
+		console.log(finalArr);
+		
+		
+		
+		
+		 
+		
+		
+		
+	</script>
+
+	</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+		
+		<!-- css选择器有哪些  哪些属性可以被继承 -->
+		<!-- 答:  
+			id选择器
+			类选择器
+			标签选择器
+			伪类选择器
+			伪元素选择器
+			后代选择器
+			兄弟选择器
+			
+			
+			
+			
+			关于文档的类型可以被继承 例如 color font-size font-family font-weight等
+		 -->
+		<!-- 写一个程序,将下划线命名转换成大驼峰命名 -->
+		<script type="text/javascript">
+			alert("下划线命名到大驼峰命名转换程序");
+			var str = prompt("请输入您的下划线命名变量名:");
+			var strArr = str.split("_");
+			//目前只能做到删除下划线
+			var newArr = "";
+			for(i in strArr){
+				newArr+=strArr[i];
+			}
+			alert("您的新变量名是:"+newArr);
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>
