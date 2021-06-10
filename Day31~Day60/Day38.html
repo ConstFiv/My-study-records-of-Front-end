@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box1,.box2{
+            height: 100px;
+            width: 200px;
+            margin: 20px auto;
+        }
+
+        .box1{
+            background-color: red;
+            text-align: center;
+            line-height: 100px;
+
+        }
+
+        .box2{
+            background-color: chartreuse;
+            text-align: left;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            
+        }
+
+    </style>
+
+</head>
+<body>
+    <!-- 说说你对cookies 和sessions的理解
+        两者都是做本地信息验证的
+        客户端第一次进行访问时，服务器产生sessions或者cookies传给客户端，然后本地存储cookies和sessions，之后再进行访问的额时候就可以带着数据进行访问。通过验证
+    -->
+
+    <!--  实现单行文本居中和多行文本左对齐并超出显示"..."
+        
+    -->
+        <div class="box1">
+            <span>卡珀深刻的破ask打破</span>
+        </div> 
+
+        <div class="box2">
+            <span>卡珀深刻的破ask打破卡珀深刻的破ask打破卡珀深刻的破ask打破卡珀深刻的破ask打破卡珀深刻的破ask打破卡珀深刻的破ask打破</span>
+        </div>
+
+    <!-- 说说你对eval的理解
+        相当于一个小型的js解析器
+        可以把传入的字符串解析成为js代码并执行
+        因为具有很大的安全隐患，所以尽量能不用就不用
+    -->
+
+
+
+</body>
+</html>

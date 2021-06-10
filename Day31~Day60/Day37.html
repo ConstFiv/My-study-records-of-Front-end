@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        .box{
+            height: 1px;
+            width: 200px;
+            margin: 200px auto;
+            background-color: black;
+            box-sizing: border-box;
+        }
+    </style>
+
+</head>
+<body>
+    <!-- html5哪些标签可以优化SEO
+        h1标签可以有助于SEO每个网页最好只有一个SEO
+        meta中的title标签也是对SEO有好处
+        description keyword等
+
+        所以这里就体现了语义化标签的重要性
+    -->
+
+
+    <!-- 不使用border画出1px高的线，在不同浏览器的标准和怪异模式下都能保持效果一样
+        ？？？使用hr就完事了
+        
+    -->
+
+    <div class="box"></div>
+
+
+    <script>
+        // 找到字符串中最长的单词，并返回他的值
+        strList = "aihsdiahs djasoidj jdisaj djasdi asjd asijdiasj daoisjdajs dasjdasjdjas pasijdijas dis adsjaijdiajsoidjaisjdoija sij iajsoid sajodja "
+
+        const findTheLongest = (str) =>{
+            let valueList =  str.split(" ");
+            let max = valueList[0]
+            valueList.forEach(element => {
+                if(element.length>max.length){
+                    max = element;
+
+                }
+            });
+            console.log(max);
+        }
+
+         
+        findTheLongest(strList);
+
+    </script>
+
+</body>
+</html>

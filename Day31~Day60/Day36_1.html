@@ -34,7 +34,7 @@
             height: 300px;
             width: 400px;
            display: block;
-            float: left;
+            
         
         }
         .buttonBox{
@@ -54,12 +54,14 @@
 </head>
 <body>
     <div class="box">
-        <img src="./Day36图片集/1.png" alt="" id="oo">
+       <div class="box2"  id="oo">
+        <img src="./Day36图片集/1.png" alt="">
         <img src="./Day36图片集/2.png" alt="">
         <img src="./Day36图片集/3.png" alt="">
         <img src="./Day36图片集/4.png" alt="">
         <img src="./Day36图片集/5.png" alt="">
 
+       </div>
     </div>
 
     <div class="buttonBox">
@@ -73,16 +75,32 @@
         let button1 = document.querySelector("#button1");
         let button2 = document.querySelector("#button2");
 
+        
 
         button1.onclick = function(){
-            // let place = go.style.left;
-            // console.log(place);
-            // go.style.left = "-400px";
-            // let place = 
+        let start = null;
+        start = setInterval(() => {
+            console.log("im in")
+            let nowX = go.offsetTop;
+            if(nowX <= -1200){
+                go.style.top = 0;
+            }else{
+                console.log(nowX)
+            go.style.top = (nowX-300)+"px";
+            }
+  
+        }, 50);
 
+        button2.onclick = function(){
+            clearInterval(start);
+          
+        }
+
+ 
 
         }
 
+     
 
     </script>
 
