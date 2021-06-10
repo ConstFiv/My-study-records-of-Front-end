@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>手写幻灯片效果</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+
+        .box{
+            margin: 100px auto 0;
+            height: 300px;
+            width: 400px;
+            border: 2px solid #333;
+            overflow: hidden;
+            position: relative;
+
+        }
+
+        #oo{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+
+        .box img{
+            height: 300px;
+            width: 400px;
+           display: block;
+            float: left;
+        
+        }
+        .buttonBox{
+            margin: 0 auto;
+            
+        }
+
+
+        button{
+            height:40px;
+            width: 150px;
+            margin: 50px;
+            font-size: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="./Day36图片集/1.png" alt="" id="oo">
+        <img src="./Day36图片集/2.png" alt="">
+        <img src="./Day36图片集/3.png" alt="">
+        <img src="./Day36图片集/4.png" alt="">
+        <img src="./Day36图片集/5.png" alt="">
+
+    </div>
+
+    <div class="buttonBox">
+        <button id="button1">开始播放</button>
+        <button id="button2">结束播放</button>
+    </div>
+
+
+    <script>
+        let go = document.querySelector("#oo");
+        let button1 = document.querySelector("#button1");
+        let button2 = document.querySelector("#button2");
+
+
+        button1.onclick = function(){
+            // let place = go.style.left;
+            // console.log(place);
+            // go.style.left = "-400px";
+            // let place = 
+
+
+        }
+
+
+    </script>
+
+</body>
+</html>

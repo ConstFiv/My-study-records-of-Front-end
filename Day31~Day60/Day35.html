@@ -1,0 +1,86 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: gray;
+        }
+
+        .edit{
+            height: 200px;
+            width: 400px;
+            margin: 150px auto;
+            background-color: #fff;
+            overflow: scroll;
+        }
+
+    </style>
+</head>
+<body>
+    用一个div模拟textarea的效果
+        这里是利用了html5中的contenteditable属性
+        如下
+        
+   
+    <div class="edit" contenteditable="true"></div>
+
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box{
+            display: flex;
+            background-color: gray;
+         
+           height: 768px;
+        }
+        .box .boxLeft{
+            background-color: green;
+            width: 300px;
+        }
+        .box .boxRight{
+            background-color: red;
+            width: 300px;
+
+        }
+        .box .boxMiddle{
+            background-color: indigo;
+            flex: 1;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 使用flex实现三栏布局，两边固定，中间自适应 
+    -->
+    <div class="box">
+        
+        <div class="boxLeft"></div>
+        <div class="boxMiddle"></div>
+        <div class="boxRight"></div>
+    </div>
+
+
+    <script>
+        // 请解释一下为什么10.toFixed(10)会报错
+        let number  = (10).toFixed(10)
+        console.log(number);
+
+        //实际上就是因为产生了歧义
+    </script>
+</body>
+</html>
