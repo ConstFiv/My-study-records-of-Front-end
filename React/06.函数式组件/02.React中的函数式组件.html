@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React中的函数式组件</title>
+    <script src="../js/旧版本/react.development.js"></script>
+    <script src="../js/旧版本/react-dom.development.js"></script>
+    <script src="../js/旧版本/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        /*
+        定义了一个函数式组件
+        1.进行hello的直接调用，则返回错误，因为它不是函数的执行结果，也是不是组件
+        2.需要操作的方式是hello()，这是函数的执行结果
+        3.一般情况在进行渲染的时候不用函数调用模式，而是使用组件调用模式
+        4.如果是函数式组件，进行组件化调用，则必须是首字母大写
+        5.在函数式组件中，this对象是undefined，其原因是React+Babel默认返回是strict严格模式
+        */
+        function Hello() {
+            console.log(this);
+            return <h2>函数式组件</h2>
+        }
+
+        ReactDOM.render(<Hello />, document.getElementById('app'))
+        /*
+        6.渲染组件到页面
+            1)<Hello/>是否写成Hello,或者是<Hello>，是不能的
+            2)在JSX中，Hello可以理解成函数，但需要渲染的是函数返回的JSX结果，所以需要函数调用，但也可以理解成函数式组件，所以需要进行<Hello/>组件模式的调用
+            3)React如果发现了<Hello/>组件标签，寻找Hello组件的定义，假如找到了，则渲染，假如找不到则直接报错
+        */
+    </script>
+</body>
+
+</html>

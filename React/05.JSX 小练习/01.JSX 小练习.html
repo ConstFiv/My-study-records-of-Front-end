@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSX 小练习</title>
+    <script src="../js/旧版本/react.development.js"></script>
+    <script src="../js/旧版本/react-dom.development.js"></script>
+    <script src="../js/旧版本/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        /*
+            0.硬编码写ul/li，引出的是需要循环功能
+            1.JSX中可以直接输出以字符串为内容的数组
+            2.在进行JSX的数组定义时，仍旧可以使用JSX语法标签
+            3.在列表中需要有一个key的属性值设置，并且唯一
+            4.列表中一定要有key，但是这个key是react所需求的，并不是html页面所需求的，所以它将在内存当中起作用
+
+            区别什么是js的语句，什么是js的表达式
+            1.语句
+                1)if()
+                2)switch
+                3)for
+                4)while
+                5)do while
+            2.表达式
+                1)a
+                2)a+b
+                3)fn()
+                4)arr.map
+                5)三元运算
+        */
+        const arr = ['Angular', 'React', 'Vue']
+        // const arr = [<li key="1">Angular</li>, <li key="2">React</li>, <li key="3">Vue</li>];
+        // 数组也可以是JSX吗？
+
+        const VDOM = (
+            <div>
+                <h2>前端框架学习</h2>
+
+                <ul>
+                    {arr.map((item, index) => {
+                        return <li key={index}>{item}</li>
+                    })}
+                </ul>
+            </div>
+        )
+        ReactDOM.render(VDOM, document.getElementById('app'))
+    </script>
+</body>
+
+</html>

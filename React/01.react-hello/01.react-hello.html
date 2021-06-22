@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Hello World</title>
+    <!-- React的核心库，处理VDOM -->
+    <script src="../js/旧版本/react.development.js"></script>
+    <!-- React的DOM操作类库，将VDOM转真实RDOM -->
+    <script src="../js/旧版本/react-dom.development.js"></script>
+    <!-- React的语法转换，将ES6转ES5，JSX转JS -->
+    <script src="../js/旧版本/babel.min.js"></script>
+    <link rel="icon" href="./favicon.ico" />
+
+</head>
+
+<body>
+    <!-- 最终都需要将虚拟DOM转到RDOM上，在app这个节点进行显示 -->
+    <div id="app"></div>
+    <script type="text/babel">
+        /*
+        1.创建一个虚拟DOM
+            1)回顾var、const、let的声明方式
+            2)考虑 "<h1>Hello React</h1>"它是字符串类型，所以虚拟DOM是不需要加引号的
+            3)虚拟DOM创建一定不能加引号，因为这是JSX中创建虚拟DOM的特殊用法
+        */
+        const VDOM = <h1>Hello React</h1>
+        /*
+        2.将虚拟DOM转成RDOM真实DOM
+            1)寻找元素不能是字符串test
+            2)寻找元素不能是字符串或者直接#test
+            3)寻找元素需要通过getElementById找到真实的DOM节点
+        */
+        ReactDOM.render(VDOM, document.getElementById('app'));
+    </script>
+</body>
+
+</html>

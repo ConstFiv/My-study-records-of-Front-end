@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fn与class的差异</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+        function fn() {
+            // 没有严格模式，this指向window
+            // 如果开启严格模式,fn下的this是undefined
+            console.log(this)
+        }
+        fn();
+
+        class App {
+            constructor(arg) {
+                console.log('类中的构造器函数里的this:', this)
+                this.arg = arg
+            }
+
+            // 类的一般方法
+            fn() {
+                console.log('类中的方法里的this:', this)
+            }
+        }
+
+        const app = new App('arg'); // 工厂模式
+        app.fn()
+    </script>
+</body>
+
+</html>

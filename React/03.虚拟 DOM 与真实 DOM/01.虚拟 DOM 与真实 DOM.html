@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>虚拟 DOM 与真实 DOM</title>
+    <script src="../js/旧版本/react.development.js"></script>
+    <script src="../js/旧版本/react-dom.development.js"></script>
+    <script src="../js/旧版本/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        /*
+        1.关于虚拟DOM需要了解的内容：
+            1)本质是一个Object对象
+            2)虚拟DOM的对象应该说是比较“轻”
+        2.真实DOM的属性节点非常多非常“重”
+        3.最终是需要将虚拟DOM转成真实DOM
+        */
+        const VDOM = <h1>Hello React</h1>
+        console.log(VDOM)
+
+        const RDOM = document.getElementById('app'); // 尝试获取找到真实DOM
+        console.log(RDOM) // 输出了真实的DOM
+        debugger;
+
+        ReactDOM.render(VDOM, document.getElementById('app'))
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSX 语法规则</title>
+    <script src="../js/旧版本/react.development.js"></script>
+    <script src="../js/旧版本/react-dom.development.js"></script>
+    <script src="../js/旧版本/babel.min.js"></script>
+    <style>
+        .demo {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        /*
+        JSX-> JavaScript XML
+        1.虚拟DOM定义的时候不能使用字符串型式，不要写引号
+        2.标签结构中需要混入js表达式，要用{}做分割，即：{js表达式}
+        3.指定样式的类名不要用class，建议使用className
+        4.行内样式，要用style={{}}的形式去编写，且像font-size这样的样式需要改写成驼峰式写法，不是必须，会出警告
+        5.JSX有且只有一个根元素，如果想要实现并列多个，后面课程中将会介绍。目前没有办法的情况下可以尝试使用一个div进行包含
+        6.标签必须闭合
+        7.标签首字母
+            1)假若标签首字母是小写，即将该标签转为html的同名元素，若html中无该元素，那么则警告
+            2)若标签首字母是大写，那么则会被认为是React组件，而这时候将会去找这个组件，如果没有定义过这个组件，将直接报错
+        */
+        const myId = 'aTguIgu'
+        const VDOM = (
+            <div>
+                <div id={myId.toUpperCase()} className="demo">
+                    <h1 style={{ color: 'gray', fontSize: '40px' }}>
+                        Hello React
+                    </h1>
+                </div>
+                <input type="text" />
+                <atguigu>atguigu.com</atguigu>
+            </div>
+        )
+        ReactDOM.render(VDOM, document.getElementById('app'))
+    </script>
+</body>
+
+</html>

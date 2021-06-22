@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forEach与map的差异</title>
+</head>
+
+<body>
+    <script>
+        const arr = [1, 2, 3, 4, 5]
+        const arr2 = arr.map(item => item + 1)
+        // 打印的内容为数组，因为map返回的就是新数组，不会修改原来的数组
+        console.log(arr2)
+        console.log(arr)
+
+        const arr3 = arr.forEach(item => item + 1)
+        // arr3返回的是undefined，因为forEach返回值就是undefined
+        console.log(arr3);
+    </script>
+</body>
+
+</html>
