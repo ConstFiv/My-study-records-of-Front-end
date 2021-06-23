@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原生JavaScript中事件绑定的操作方式有哪几种</title>
+</head>
+
+<body>
+    <button id="btn1">按钮一</button>
+    <button id="btn2">按钮二</button>
+
+    <button id="btn3" onclick="demo()">按钮三</button>
+
+    <script>
+        const btn1 = document.getElementById("btn1");
+        const btn2 = document.getElementById("btn2");
+
+        // 事件的监听
+        btn1.addEventListener("click", function () {
+            alert('按钮一被点击了')
+        })
+
+        // onclick绑定事件
+        btn2.onclick = function () {
+            alert('按钮二被点击了')
+        }
+
+        function demo() {
+            alert('按钮三被点击了')
+        }
+
+    </script>
+</body>
+
+</html>

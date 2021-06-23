@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>展开式语法</title>
+</head>
+
+<body>
+    <script>
+        let obj = { a: 1, b: 2, c: 3 }
+        let arr = [1, 3, 5, 7, 9]
+
+        // console.log(arr);
+        // console.log(...arr) // 展开数组
+
+        // console.log(...obj) // 报错，对象是不可以...展开输出的，对象不可以用for...of遍历
+
+        const obj2 = { ...obj }; // 对象的复制，浅拷贝
+        // console.log(obj2 === obj)
+        // console.log(obj2)
+
+        const obj3 = { ...obj, b: 200 } // 对象复制，修改b为200，再赋值给obj3
+        console.log(obj3)
+    </script>
+</body>
+
+</html>

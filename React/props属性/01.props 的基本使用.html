@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>props 的基本使用</title>
+    <script src="../js/旧版本/react.development.js"></script>
+    <script src="../js/旧版本/react-dom.development.js"></script>
+    <script src="../js/旧版本/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+    <div id="app1"></div>
+
+    <script type="text/babel">
+        class Person extends React.Component {
+            render() {
+                const { name, age, sex } = this.props
+                return (
+                    <ul>
+                        <li>姓名:{name}</li>
+                        <li>年龄:{age}</li>
+                        <li>性别:{sex}</li>
+                    </ul>
+                )
+            }
+        }
+
+        /*
+        在class中调用new Person('张三')来进行属性的设置
+        在React组件当中，可以利用标签组件的属性来进行属性值的初始设置
+        */
+        ReactDOM.render(<Person name="张三" age="18" sex='男' />, document.getElementById('app'))
+
+        ReactDOM.render(<Person name="李四" age="19" sex='女' />, document.getElementById('app1'))
+
+    </script>
+</body>
+
+</html>

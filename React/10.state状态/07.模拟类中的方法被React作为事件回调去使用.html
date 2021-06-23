@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模拟类中的方法被React作为事件回调去使用</title>
+</head>
+
+<body>
+    <script>
+        class Weather {
+            changeWeather() {
+                console.log(this)
+            }
+        }
+
+        const w = new Weather();
+        // 直接调用，调用changeWeather，this指向的就是Weather的实例对象
+        // w.changeWeather();
+        // 没有直接调用，只是指向
+        const x = w.changeWeather;
+        // 进行函数的调用，this输出的undefined
+        // 因为现在的x()是全局，this如果不是严格模式应该是指向window
+        // 但是，当前是class类，所以自动是严格模式，因此是undefined
+
+        // 严格模式：如果this指向window才进行管理，不指向window是不作以管理操作的
+        x();
+
+    </script>
+</body>
+
+</html>

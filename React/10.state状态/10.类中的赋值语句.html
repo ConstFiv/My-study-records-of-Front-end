@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>类中的赋值语句</title>
+</head>
+
+<body>
+    <script>
+        class Student {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+            // 类中无法直接调用console.log()以及alert这样的函数
+            // console.log('硅谷')
+
+            // alert('硅谷')
+
+            // 当前这行代码的意义是：给实例自身添加一个属性，叫school，值为“尚硅谷”
+            // 类中是可以直接设置实例属性的
+            school = '尚硅谷';
+        }
+
+        const s1 = new Student('张三', 18)
+        const s2 = new Student('李四', 29)
+        console.log(s1)
+        console.log(s2)
+
+
+
+
+    </script>
+</body>
+
+</html>

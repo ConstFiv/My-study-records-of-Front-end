@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>构造函数与继承</title>
+</head>
+
+<body>
+    <script>
+        // 构造函数创建类
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        // 一般方法将会被挂载于原型对象上
+        Person.prototype.speak = function () {
+            // this指向的是p1这个张三实例对象
+            console.log(this);
+            // 通过Person实例调用speak的方法，speak中的this就是Person的实例对象
+            console.log(`我叫${this.name}，今年${this.age}`)
+        }
+
+
+        function Student(name, age, grade) {
+            this.name = name;
+            this.age = age;
+            this.grade = grade;
+        }
+
+        // 让子类的原型对象指向父类的实例
+        Student.prototype = new Person();
+
+        const s1 = new Student('李四', 28, '大学');
+        console.log(s1);
+        s1.speak();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>setState的使用</title>
+    <script src="../js/旧版本/react.development.js"></script>
+    <script src="../js/旧版本/react-dom.development.js"></script>
+    <script src="../js/旧版本/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+    <div id="app1"></div>
+
+    <script type="text/babel">
+        class Weather extends React.Component {
+            constructor(props) {
+                console.log('---constructor 1次---')
+                super(props);
+                this.state = {
+                    isHot: true,
+                    wind: '微风'
+                };
+                this.changeWeather = this.changeWeather.bind(this);
+            }
+
+            changeWeather() {
+                console.log('---changeWeather N次，点击几次执行几次---')
+
+                // React中不允许直接修改state的状态值
+                // this.state.isHot = false;
+                console.log(this)
+                // console.log('我想要改变的是state的状态值，也就是isHot', this.state.isHot);
+                // 通过隐式原型链找到React组件当中的setState方法
+                // 实现toggle切换
+                this.setState({ isHot: !this.state.isHot })
+            }
+
+            render() {
+                console.log('---render 1+N次---')
+                return (
+                    <div>
+                        <h1 id='h1' onClick={this.changeWeather}>
+                            你好,{this.state.isHot ? '炎热' : '凉快'}
+                        </h1>
+                        <h3>{this.state.wind}</h3>
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(<Weather />, document.getElementById('app'));
+        ReactDOM.render(<Weather />, document.getElementById('app1'));
+
+    </script>
+</body>
+
+</html>

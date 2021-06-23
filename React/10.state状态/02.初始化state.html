@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对state的理解</title>
+    <script src="../js/旧版本/react.development.js"></script>
+    <script src="../js/旧版本/react-dom.development.js"></script>
+    <script src="../js/旧版本/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        /*
+            当前变量的声明方式与响应式的方式差异
+            1.什么是响应式数据？
+                1)初始阶段数据
+                2)更新阶段数据
+        */
+        class Weather extends React.Component {
+
+            constructor(props) { // props参数类型应该是 Object 对象
+                super(props); // 借用父类的this指向
+                // 设置state为字符串会出现警告
+                // 警告state的类型为对象或者null
+                // state最终需要设置成对象模式，而不是数组（数组为有序数组，对象则为无序对象）
+                // 在哪里设置state，为什么在constructor里设置state？
+                // 1.初始化
+                // 2.找到实例对象
+                // 3.找到实例对象的前提是要找到this指向
+                this.state = {
+                    isHot: true
+                }
+            }
+
+
+            render() {
+                console.log(this)
+                // this考虑的永远都是实例对象
+                return (
+                    <div>
+                        {/*
+                            state的数据类型显示
+                            1.布尔值，不进行直接显示
+                            2.string,number,undefined,null,都是可以渲染的，只不过undefined,null,没内容
+                            3.arrary可以直接转化显示成字符串形式
+                            4.object对象与function方法是不可以进行渲染显示的
+                        */}
+                        <h1>你好,{this.state.isHot ? '炎热' : '凉快'}</h1>
+                    </div>
+                )
+            }
+        }
+
+
+        ReactDOM.render(<Weather />, document.getElementById('app'))
+    </script>
+</body>
+
+</html>

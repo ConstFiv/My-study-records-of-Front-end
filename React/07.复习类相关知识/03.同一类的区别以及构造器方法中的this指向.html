@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>同一类的区别以及构造器方法中的this指向</title>
+</head>
+
+<body>
+    <script>
+        // 定义一个 Person 类
+        // 构造器方法
+        // 作用：给实例自身初始化属性
+        // 而且可以接收到new调用时传入的参数
+        class Person {
+            constructor(name, age) {
+                // 构造器方法中的this是谁？类的实例对象
+                // 谁new的Person，构造器中的this就指向谁
+                // 现在new是p1，那么this就指向的是p1
+                this.name = name;
+                this.age = age;
+            }
+
+        } // P一定是大写
+
+
+        // 创建一个Person的实例对象
+        const p1 = new Person('张三', 18);
+        const p2 = new Person('李四', 29);
+
+
+        // 输出的并不是 Person 类，而是由 Person 类缔造出来的实例对象
+        // 生活化编程：
+        // 人是类，张三是个人，女娲捏了一个人类还是捏了一个张三？
+        console.log(p1)
+        console.log(p2)
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对state的理解</title>
+    <script src="../js/旧版本/react.development.js"></script>
+    <script src="../js/旧版本/react-dom.development.js"></script>
+    <script src="../js/旧版本/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        /*
+            当前变量的声明方式与响应式的方式差异
+            1.什么是响应式数据？
+                1)初始阶段数据
+                2)更新阶段数据
+        */
+        const username = 'Vane'
+        class Demo extends React.Component {
+
+            render() {
+                console.log(this)
+                // this考虑的永远都是实例对象
+                return (
+                    <div>
+                        <h1>你好,{username}</h1>
+                    </div>
+                )
+            }
+        }
+
+
+        ReactDOM.render(<Demo />, document.getElementById('app'))
+    </script>
+</body>
+
+</html>

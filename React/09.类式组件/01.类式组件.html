@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>类式组件</title>
+    <script src="../js/旧版本/react.development.js"></script>
+    <script src="../js/旧版本/react-dom.development.js"></script>
+    <script src="../js/旧版本/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+
+        // ES6中class定义一个类，组件
+        class Hello extends React.Component {
+            /*
+                1.是不是可以不设置render方法？不可以，报错误
+                2.render中是否可以不返回内容？不可以，报错误
+                3.render方法它是放在哪里的？
+                4.render的方法是应该放置于Hello的原型对象上，以便供实例对象使用
+                5.render中的this是谁？Hello类的实例对象-Hello的实例对象-Hello的组件实例
+            */
+            render() {
+                console.log(this) // render中的this是Hello类的实例对象
+                /*
+                    class的几个重要属性：
+                    1.context而不是content，content是内容，而context是上下文
+                    2.props：prop是属性是property的缩写，而props是复数，是properties的缩写
+                    3.refs:ref是reference的缩写，是引用，参考
+                    4.state:当前是null
+                */
+                return <h1>类式组件</h1>
+            }
+        }
+
+
+        // 标签组件的形式
+        ReactDOM.render(<Hello />, document.getElementById('app'))
+    </script>
+</body>
+
+</html>

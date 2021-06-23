@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>state的简写方式</title>
+    <script src="../js/旧版本/react.development.js"></script>
+    <script src="../js/旧版本/react-dom.development.js"></script>
+    <script src="../js/旧版本/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        class Weather extends React.Component {
+            /*
+                constructor的两大作用：
+                1.是进行state的初始化
+                2.进行事件的bind绑定操作，改变this指向
+
+                将constructor去除，直接用state的方法进行状态的声明
+                那就意味着构造器函数中的bind操作已经消失，所以又会出现this指向丢失问题
+
+                解决该问题的方式：
+                1.将bind绑定放置于事件绑定操作当中
+                2.在开发过程中将所有的事件绑定回调改写成箭头函数
+            */
+            state = {
+                isHot: true
+            };
+
+            // 箭头函数，变成了实例对象的属性
+            // 相当于 xxx = 1;
+            changeWeather = () => {
+                this.setState({ isHot: !this.state.isHot })
+            }
+
+            // 一般方法是挂载于原型对象上
+            // changeWeather() {
+            //     this.setState({ isHot: !this.state.isHot })
+            // }
+            render() {
+                console.log(this)
+                return (
+                    <div>
+                        <h1 id='h1' onClick={this.changeWeather}>
+                            你好,{this.state.isHot ? '炎热' : '凉快'}
+                        </h1>
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(<Weather />, document.getElementById('app'));
+    </script>
+</body>
+
+</html>

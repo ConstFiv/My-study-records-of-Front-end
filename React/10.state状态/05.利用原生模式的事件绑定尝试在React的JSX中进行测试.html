@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>利用原生模式的事件绑定尝试在React的JSX中进行测试</title>
+    <script src="../js/旧版本/react.development.js"></script>
+    <script src="../js/旧版本/react-dom.development.js"></script>
+    <script src="../js/旧版本/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        // 匿名函数
+        const demo = function () {
+            alert('事件的绑定操作')
+        }
+
+        class Weather extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    isHot: true
+                }
+            }
+            render() {
+                return (
+                    <div>
+                        {/*
+                        1.demo()，函数的自调用
+                        2.demo,不带括号，它是函数的指向
+                        */}
+                        <h1 id="h1" onClick={demo}>你好,{this.state.isHot ? '炎热' : '凉快'}</h1>
+                    </div>
+                )
+            }
+        }
+
+
+
+        ReactDOM.render(<Weather />, document.getElementById('app'))
+
+        // 命名函数
+        // function demo() {
+        //     alert('事件的绑定操作')
+        // }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对 props 进行限制</title>
+    <script src="../js/旧版本/react.development.js"></script>
+    <script src="../js/旧版本/react-dom.development.js"></script>
+    <script src="../js/旧版本/babel.min.js"></script>
+    <script src="../js/旧版本/prop-types.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+    <div id="app1"></div>
+    <script type="text/babel">
+        class Person extends React.Component {
+            render() {
+                const { name, age, sex, address, car } = this.props
+                console.log(this)
+                return (
+                    <ul>
+                        <li>姓名:{name}</li>
+                        <li>年龄:{age + 1}</li>
+                        <li>性别:{sex}</li>
+                        <li>地址:{address}</li>
+                        <li>座驾:{car}</li>
+                    </ul>
+                )
+            }
+
+        }
+
+        /*
+        当前给Person类添加了一个x属性，这个x属性在哪里？
+        1.它不在实例对象上
+        2.它也不在原型对象上
+        3.它放在了Person自身对象上
+        */
+        // Person.x = 1;
+        // 希望这个Person组件自身带有对于属性的约束功能
+        /*
+        Person.props规则 = {
+            name: '必须传递，并且为字符串',
+            age: '必须传递，并且为数字型',
+            sex: '必须传递，并且为字符串',
+            address: '可选传递，并且为字符串',
+        }
+        */
+
+        /*
+            因为Person自身对象有限制的操作
+            所以呢，每个Person实例化对象也将会有限制操作
+            React的验证规则是propTypes，它是由prop-types进行管理的
+        */
+
+        Person.propTypes = {
+            name: PropTypes.string.isRequired,
+            age: PropTypes.number.isRequired,
+            sex: PropTypes.string.isRequired,
+            address: PropTypes.string
+        }
+
+        Person.defaultProps = {
+            address: '武汉',
+            car: '11路双腿公交'
+        }
+
+        const p1 = {
+            name: '王五',
+            age: 32,
+            sex: '男',
+            address: '武汉',
+            car: '三轮'
+        }
+
+        ReactDOM.render(<Person {...p1} />, document.getElementById('app'))
+
+        ReactDOM.render(<Person name="张三" age={19} sex="男" />, document.getElementById('app1'))
+    </script>
+</body>
+
+</html>

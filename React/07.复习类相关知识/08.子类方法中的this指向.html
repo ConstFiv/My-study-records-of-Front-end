@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>子类方法中的this指向</title>
+</head>
+
+<body>
+    <script>
+        // 定义一个 Person 类
+        // 构造器方法
+        // 作用：给实例自身初始化属性
+        // 而且可以接收到new调用时传入的参数
+        class Person {
+            constructor(name, age) {
+                // 构造器方法中的this是谁？类的实例对象
+                // 谁new的Person，构造器中的this就指向谁
+                // 现在new是p1，那么this就指向的是p1
+                this.name = name;
+                this.age = age;
+            }
+
+            // 类除了属性，还会有一些方法，就是这个类能做的事情
+            // 类的一般方法：
+            // 一般方法：程序员根据业务逻辑，自定义的一些方法
+            // 这个说话的能力是由女娲赋予的，赋予的是人类都有说话的能力
+            // 一般方法将会被挂载于隐式原型上
+
+            /*
+                speak放在了哪里？Person的原型对象上，一般都是提供实例对象使用
+                speak中的this是谁？
+                通过Person实例调用speak的时候，speak中的this是Person的实例对象，也就是当前的张三
+            */
+            speak() {
+                console.log('我说话了', this)
+            }
+
+        } // P一定是大写
+
+
+        // 定义一个Student的类继承于Person
+        // 继承的重要概念：让子类的原型对象指向父类的实例
+        class Student extends Person {
+
+            // 将出错：引用错误
+            // constructor(name, age, grade) {
+            //     this.name = name
+            //     this.age = age
+            //     this.grade = grade
+            // }
+
+
+            constructor(name, age, grade) {
+                // super能够帮助我们调用父类的构造器方法中的this
+                // super必须在this之前调用
+                super(name, age);
+                this.grade = grade;
+            }
+
+            // 类的方法会被挂载到隐式原型上
+            study() {
+                console.log(this) // 子类中的this指向的是当前的实例对象
+                console.log(`我读了${this.grade}`)
+            }
+        }
+
+
+        const s1 = new Student('李四', 23, '大学')
+
+        // console.log(s1);
+
+        // 如果当前找不到方法，则通过隐式原型链逐层向上查找
+        // s1.speak();
+        s1.study();
+
+
+
+    </script>
+</body>
+
+</html>

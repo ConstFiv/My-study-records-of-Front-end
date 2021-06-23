@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>批量传递 props</title>
+    <script src="../js/旧版本/react.development.js"></script>
+    <script src="../js/旧版本/react-dom.development.js"></script>
+    <script src="../js/旧版本/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+    <div id="app1"></div>
+
+    <script type="text/babel">
+        class Person extends React.Component {
+            render() {
+                const { age, sex } = this.props
+                // 属性是否能修改？不能，因为是只读的
+                let name = this.props.name; // 现在的name不再是props属性，而是一个变量
+                name = name + '!'
+
+                return (
+                    <ul>
+                        <li>姓名:{name}</li>
+                        <li>年龄:{age}</li>
+                        <li>性别:{sex}</li>
+                    </ul>
+                )
+            }
+        }
+
+        /*
+        在class中调用new Person('张三')来进行属性的设置
+        在React组件当中，可以利用标签组件的属性来进行属性值的初始设置
+        */
+
+        const p1 = {
+            name: '王五',
+            age: 32,
+            sex: '男',
+            address: '武汉',
+            car: '三轮'
+        }
+
+
+        // 按正常情况...p1是不能够展开的，但是在React当中，它是一个特例，而且只有在组件标签属性中才可以如此操作
+        ReactDOM.render(<Person {...p1} />, document.getElementById('app'))
+
+        ReactDOM.render(<Person name="李四" age="19" sex='女' />, document.getElementById('app1'))
+
+    </script>
+</body>
+
+</html>

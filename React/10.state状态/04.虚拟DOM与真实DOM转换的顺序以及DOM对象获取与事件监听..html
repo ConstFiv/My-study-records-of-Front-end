@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>虚拟DOM与真实DOM转换的顺序以及DOM对象获取与事件监听</title>
+    <script src="../js/旧版本/react.development.js"></script>
+    <script src="../js/旧版本/react-dom.development.js"></script>
+    <script src="../js/旧版本/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        class Weather extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    isHot: true
+                }
+            }
+            render() {
+                return (
+                    <div>
+                        <h1 id="h1">你好,{this.state.isHot ? '炎热' : '凉快'}</h1>
+                    </div>
+                )
+            }
+        }
+
+        // 虚拟DOM
+        /*
+        const h1 = document.getElementById('h1');
+        h1.addEventListener('click', function () {
+            alert('真实DOM渲染之前找不到DOM对象，h1返回的是null，所以无法获取对象')
+        })
+        */
+
+        ReactDOM.render(<Weather />, document.getElementById('app'))
+
+        // 真实DOM
+
+        const h1 = document.getElementById('h1');
+        // h1.addEventListener('click', function () {
+        //     alert('真实DOM渲染之后可以找到DOM对象，并且可以添加事件的监听操作')
+        // })
+
+        h1.onclick = function () {
+            console.log('真实DOM渲染之后可以找到DOM对象,并且可以绑定事件操作')
+        }
+    </script>
+</body>
+
+</html>
