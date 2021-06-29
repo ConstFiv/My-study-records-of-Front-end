@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>react小练习</title>
+    <script src="./js/旧版本/react.development.js"></script>
+    <script src="./js/旧版本/react-dom.development.js"></script>
+    <script src="./js/旧版本/babel.min.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script type="text/babel">
+    let ulList = "前端JS框架列表";
+    let li0 = "Angular";
+    let li1 = "React";
+    let li2 = "Vue";
+
+    const VDOM = (
+                <div>
+                    <h1>{ulList}</h1>
+                <ul>
+                    <li>{li0}</li>
+                    <li>{li1}</li>
+                    <li>{li2}</li>
+                 </ul>    
+                </div>
+                )
+
+    ReactDOM.render(VDOM,document.getElementById("app"));
+
+    
+    </script>
+</body>
+</html>
