@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <title>hello react 项目</title>
+    <!-- 引入react核心库 -->
+   <script src="./js/旧版本/react.development.js"></script>
+   <!-- 引入react的dom库 -->
+   <script src="./js/旧版本/react-dom.development.js"></script>
+    <!-- 引入babel库 -->
+    <script src="./js/旧版本/babel.min.js"></script>
+</head>
+<body>
+
+    <div id="app"></div>
+
+    <script type="text/babel">
+    {/* 创建虚拟dom*/}
+    const VDOM = <h1>hello react</h1>;
+    ReactDOM.render(VDOM,document.getElementById("app"));
+
+    </script>
+   
+
+</body>
+</html>

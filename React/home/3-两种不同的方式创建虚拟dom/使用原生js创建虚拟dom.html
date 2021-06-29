@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用原生js创建虚拟dom</title>
+    <script src="./js/旧版本/react.development.js"></script>
+    <script src="./js/旧版本/react-dom.development.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/javascript">
+        const VDOM = React.createElement("h1",{color:'red',id:'title'},"hello react")
+        ReactDOM.render(VDOM,document.getElementById("app"));
+    
+    </script>
+
+</body>
+</html>
