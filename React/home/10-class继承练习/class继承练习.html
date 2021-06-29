@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class的继承练习</title>
+</head>
+<body>
+    <script type="text/javascript">
+    //父类
+    class Human{
+        constructor(name,age){
+            this.name = name;
+            this.age  = age;
+        }
+
+    speak(){
+        console.log("I SPEAK ENGLISH YOU SHCH A BITCH!")
+    }
+    
+    }
+    
+
+    // 子类
+    class Student extends Human{
+        constructor(name,age,gender){
+            super(name,age)
+            this.gender= gender;
+        }
+
+        speak(){
+        console.log("我讲中文你这个沙滩之子")
+    }
+
+    }
+
+
+
+    let man1 = new Student("tom",18,"nan");
+    let man2 = new Student("Jerry",23,"nv");
+    console.log(man1)
+    man1.speak();
+    </script>
+
+
+
+
+
+
+
+</body>
+</html>
