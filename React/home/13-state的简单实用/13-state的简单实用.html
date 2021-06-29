@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <title>hello react 项目</title>
+    <!-- 引入react核心库 -->
+   <script src="./js/旧版本/react.development.js"></script>
+   <!-- 引入react的dom库 -->
+   <script src="./js/旧版本/react-dom.development.js"></script>
+    <!-- 引入babel库 -->
+    <script src="./js/旧版本/babel.min.js"></script>
+</head>
+<body>
+    <!-- //state的用法 -->
+
+    <div id="app"></div>
+
+    <script type="text/babel">
+    class Mycomponent extends React.Component{
+        constructor(props){
+            super(props);
+            this.state = {"isHot":false};
+        }
+
+        render(){
+            return(
+                <h1>今天天气很{this.state.isHot ? "炎热":"凉爽"}</h1>
+            )
+        }
+
+    }
+
+
+    ReactDOM.render(<Mycomponent/>,document.getElementById("app"));
+
+    
+    
+    </script>
+
+</body>
+</html>
