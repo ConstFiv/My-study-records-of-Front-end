@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <title>hello react 项目</title>
+    <!-- 引入react核心库 -->
+   <script src="./js/旧版本/react.development.js"></script>
+   <!-- 引入react的dom库 -->
+   <script src="./js/旧版本/react-dom.development.js"></script>
+    <!-- 引入babel库 -->
+    <script src="./js/旧版本/babel.min.js"></script>
+    <!-- 引入prop库 -->
+    <script src="./js/旧版本/prop-types.js"></script>
+
+</head>
+<body>
+   <!-- refs的基本使用 之  回调函数写法 -->
+    
+   <div id="root"></div>
+
+   <script type="text/babel">
+    class Demo extends React.Component{
+        show1 = ()=>{
+            alert(this.input1.value);
+        }
+
+        show2 = ()=>{
+            alert(this.input2.value);
+        }
+
+
+        render(){
+            return(
+                <div>
+                    <input  ref={(c)=>{this.input1 = c}} placeholder ="点击显示输入内容" type="text"/>
+                    <button onClick = {this.show1} >点我点我</button>
+                    <input ref={c => this.input2 = c} onBlur = {this.show2} placeholder = "失去焦点显示输入内容" type="text"/>
+                </div>
+
+
+
+            )
+        }
+    }
+
+
+    ReactDOM.render(<Demo/>,document.getElementById("root") );
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>
